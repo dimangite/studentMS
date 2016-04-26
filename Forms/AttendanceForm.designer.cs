@@ -76,7 +76,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewAtd.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewAtd.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewAtd.Location = new System.Drawing.Point(0, 103);
+            this.dataGridViewAtd.Location = new System.Drawing.Point(-4, 103);
             this.dataGridViewAtd.Name = "dataGridViewAtd";
             this.dataGridViewAtd.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -112,21 +112,20 @@
             this.labelDate.AutoSize = true;
             this.labelDate.Font = new System.Drawing.Font("Rockwell", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.Color.Black;
-            this.labelDate.Location = new System.Drawing.Point(483, 67);
+            this.labelDate.Location = new System.Drawing.Point(479, 67);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(91, 31);
+            this.labelDate.Size = new System.Drawing.Size(0, 31);
             this.labelDate.TabIndex = 1;
-            this.labelDate.Text = "labelT";
             // 
             // labelMonth
             // 
             this.labelMonth.AutoSize = true;
             this.labelMonth.Font = new System.Drawing.Font("Chaparral Pro", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMonth.Location = new System.Drawing.Point(378, 0);
+            this.labelMonth.Location = new System.Drawing.Point(374, 0);
             this.labelMonth.Name = "labelMonth";
-            this.labelMonth.Size = new System.Drawing.Size(337, 76);
+            this.labelMonth.Size = new System.Drawing.Size(299, 76);
             this.labelMonth.TabIndex = 2;
-            this.labelMonth.Text = "labelMonth";
+            this.labelMonth.Text = "Attendace";
             // 
             // btnSave
             // 

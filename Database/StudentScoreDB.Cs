@@ -245,17 +245,19 @@ namespace StudentManagementSystem
             cmd.Connection = Database.connection;
             cmd.CommandText = "SELECT FullName FROM studentscore Where ID = @ID";
             cmd.Parameters.AddWithValue("ID", ID);
+           // MessageBox.Show(ID.ToString());
             String FullName = "";
             try
             {
-                //DataBase.Open();
+                Database.Open();
                 MySqlDataReader read = cmd.ExecuteReader();
                 while (read.Read() == true)
                 {
                     FullName = read.GetString(read.GetOrdinal("FullName"));
                 }
+                read.Close();
             }
-            catch (Exception) { }
+            catch (Exception e) { MessageBox.Show(e.ToString()); }
             //DataBase.Close();
             //////////////////////Delete
             var result = MessageBox.Show("Are you sure want to delete student name : " + FullName + " From this Class ?", "Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

@@ -94,7 +94,7 @@ namespace StudentManagementSystem
 
         private void DynamicButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Now you are in class ");
+           // MessageBox.Show("Now you are in class ");
             (this.Owner as ToolMenu).btnStudentList_Click(sender,e);
             (this.Owner as ToolMenu).ActiveButton();
         }

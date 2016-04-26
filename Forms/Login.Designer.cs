@@ -198,7 +198,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btnBack.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
             this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

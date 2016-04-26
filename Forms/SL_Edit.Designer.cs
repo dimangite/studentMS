@@ -114,7 +114,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Chaparral Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(367, 258);
+            this.label13.Location = new System.Drawing.Point(366, 258);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(17, 25);
             this.label13.TabIndex = 84;
@@ -135,7 +135,7 @@
             this.txtMotherName.BackColor = System.Drawing.Color.White;
             this.txtMotherName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMotherName.Font = new System.Drawing.Font("Chaparral Pro", 15.75F);
-            this.txtMotherName.Location = new System.Drawing.Point(418, 254);
+            this.txtMotherName.Location = new System.Drawing.Point(417, 254);
             this.txtMotherName.Name = "txtMotherName";
             this.txtMotherName.Size = new System.Drawing.Size(236, 33);
             this.txtMotherName.TabIndex = 70;
@@ -154,7 +154,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Chaparral Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(181, 258);
+            this.label15.Location = new System.Drawing.Point(180, 258);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(145, 25);
             this.label15.TabIndex = 79;
@@ -188,7 +188,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Chaparral Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(367, 204);
+            this.label8.Location = new System.Drawing.Point(366, 204);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(17, 25);
             this.label8.TabIndex = 78;
@@ -199,7 +199,7 @@
             this.txtFatherName.BackColor = System.Drawing.Color.White;
             this.txtFatherName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFatherName.Font = new System.Drawing.Font("Chaparral Pro", 15.75F);
-            this.txtFatherName.Location = new System.Drawing.Point(418, 204);
+            this.txtFatherName.Location = new System.Drawing.Point(417, 204);
             this.txtFatherName.Name = "txtFatherName";
             this.txtFatherName.Size = new System.Drawing.Size(236, 33);
             this.txtFatherName.TabIndex = 69;
@@ -208,7 +208,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Chaparral Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(181, 204);
+            this.label3.Location = new System.Drawing.Point(180, 204);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(137, 25);
             this.label3.TabIndex = 77;
@@ -250,7 +250,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Chaparral Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(367, 107);
+            this.label9.Location = new System.Drawing.Point(366, 107);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(17, 25);
             this.label9.TabIndex = 73;
@@ -324,7 +324,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Chaparral Pro", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(181, 107);
+            this.label4.Location = new System.Drawing.Point(180, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 25);
             this.label4.TabIndex = 62;

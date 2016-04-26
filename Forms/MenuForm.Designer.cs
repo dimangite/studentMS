@@ -36,7 +36,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbReady = new System.Windows.Forms.Label();
             this.btnReport = new System.Windows.Forms.Button();
-            this.btnStudentPayment = new System.Windows.Forms.Button();
             this.btnAboutUs = new System.Windows.Forms.Button();
             this.btnStudentAttendent = new System.Windows.Forms.Button();
             this.btnStudentList = new System.Windows.Forms.Button();
@@ -56,6 +55,7 @@
             this.pnUnder = new System.Windows.Forms.Panel();
             this.ttClose = new System.Windows.Forms.ToolTip(this.components);
             this.ttMinimun = new System.Windows.Forms.ToolTip(this.components);
+            this.btnStudentPayment = new System.Windows.Forms.Button();
             this.pnMenu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.pnApp.SuspendLayout();
@@ -70,7 +70,6 @@
             this.pnMenu.Controls.Add(this.btnOption);
             this.pnMenu.Controls.Add(this.panel2);
             this.pnMenu.Controls.Add(this.btnReport);
-            this.pnMenu.Controls.Add(this.btnStudentPayment);
             this.pnMenu.Controls.Add(this.btnAboutUs);
             this.pnMenu.Controls.Add(this.btnStudentAttendent);
             this.pnMenu.Controls.Add(this.btnStudentList);
@@ -79,6 +78,7 @@
             this.pnMenu.Controls.Add(this.pnApp);
             this.pnMenu.Controls.Add(this.btnLogOut);
             this.pnMenu.Controls.Add(this.panel3);
+            this.pnMenu.Controls.Add(this.btnStudentPayment);
             this.pnMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnMenu.Location = new System.Drawing.Point(0, 0);
             this.pnMenu.Name = "pnMenu";
@@ -147,7 +147,7 @@
             this.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReport.Font = new System.Drawing.Font("Chaparral Pro", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnReport.Location = new System.Drawing.Point(0, 344);
+            this.btnReport.Location = new System.Drawing.Point(3, 292);
             this.btnReport.Name = "btnReport";
             this.btnReport.Size = new System.Drawing.Size(262, 46);
             this.btnReport.TabIndex = 7;
@@ -155,23 +155,6 @@
             this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReport.UseVisualStyleBackColor = true;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
-            // 
-            // btnStudentPayment
-            // 
-            this.btnStudentPayment.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(18)))));
-            this.btnStudentPayment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnStudentPayment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnStudentPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStudentPayment.Font = new System.Drawing.Font("Chaparral Pro", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStudentPayment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnStudentPayment.Location = new System.Drawing.Point(0, 292);
-            this.btnStudentPayment.Name = "btnStudentPayment";
-            this.btnStudentPayment.Size = new System.Drawing.Size(262, 46);
-            this.btnStudentPayment.TabIndex = 5;
-            this.btnStudentPayment.Text = "     Students Payment";
-            this.btnStudentPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStudentPayment.UseVisualStyleBackColor = true;
-            this.btnStudentPayment.Click += new System.EventHandler(this.btnStudentPayment_Click);
             // 
             // btnAboutUs
             // 
@@ -392,6 +375,23 @@
             this.pnUnder.Size = new System.Drawing.Size(1114, 37);
             this.pnUnder.TabIndex = 13;
             // 
+            // btnStudentPayment
+            // 
+            this.btnStudentPayment.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(18)))));
+            this.btnStudentPayment.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnStudentPayment.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnStudentPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStudentPayment.Font = new System.Drawing.Font("Chaparral Pro", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudentPayment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnStudentPayment.Location = new System.Drawing.Point(0, 344);
+            this.btnStudentPayment.Name = "btnStudentPayment";
+            this.btnStudentPayment.Size = new System.Drawing.Size(262, 46);
+            this.btnStudentPayment.TabIndex = 5;
+            this.btnStudentPayment.Text = "      Note";
+            this.btnStudentPayment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudentPayment.UseVisualStyleBackColor = true;
+            this.btnStudentPayment.Click += new System.EventHandler(this.btnStudentPayment_Click);
+            // 
             // ToolMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -441,7 +441,6 @@
         private System.Windows.Forms.ToolTip ttClose;
         private System.Windows.Forms.ToolTip ttMinimun;
         public System.Windows.Forms.Button btnHome;
-        public System.Windows.Forms.Button btnStudentPayment;
         public System.Windows.Forms.Button btnStudentAttendent;
         public System.Windows.Forms.Button btnStudentList;
         public System.Windows.Forms.Button btnStudentScore;
@@ -449,6 +448,7 @@
         public System.Windows.Forms.Button btnOption;
         public System.Windows.Forms.Button btnClose;
         public System.Windows.Forms.Label lbMainName;
+        public System.Windows.Forms.Button btnStudentPayment;
     }
 }
 

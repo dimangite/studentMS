@@ -81,6 +81,21 @@ namespace StudentManagementSystem
             cmd1.ExecuteNonQuery();
 
             //...................
+           /* string query3 = "INSERT INTO studentscore(@studentID, @Fullname, @Gender, @Homework,@Quiz,@Assignment, @Midterm, @Attendance, @Final) VALUES(studentID, Fullname, Gender, Homework,Quiz, Assignment, Midterm, Attendance, Final)";
+            MySqlCommand cmd3 = new MySqlCommand(query3, Database.connection);
+            cmd3.Prepare();
+            cmd3.Parameters.AddWithValue("@studentID", ID);
+            cmd3.Parameters.AddWithValue("@Fullname", student.Name);
+            cmd3.Parameters.AddWithValue("@Gender", student.Name);
+            cmd3.Parameters.AddWithValue("@Homework", student.ClassID);
+            cmd3.Parameters.AddWithValue("@Quiz", student.Name);
+            cmd3.Parameters.AddWithValue("@Assignment", student.ClassID);
+            cmd3.Parameters.AddWithValue("@Midterm", student.Name);
+            cmd3.Parameters.AddWithValue("@Attendance", student.ClassID);
+            cmd3.Parameters.AddWithValue("@Final", student.ClassID);
+            cmd3.ExecuteNonQuery();
+            */
+            //==================
 
             string query2 = "SELECT * FROM student where name= @name";
             MySqlCommand cmd2 = new MySqlCommand(query2, Database.connection);
