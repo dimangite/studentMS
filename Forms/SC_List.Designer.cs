@@ -36,8 +36,17 @@
             this.StudentScoreList = new System.Windows.Forms.DataGridView();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.ttSearch = new System.Windows.Forms.ToolTip(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StudentScoreList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +69,17 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.StudentScoreList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.StudentScoreList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StudentScoreList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -69,7 +89,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.StudentScoreList.DefaultCellStyle = dataGridViewCellStyle2;
             this.StudentScoreList.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.StudentScoreList.Location = new System.Drawing.Point(0, 29);
+            this.StudentScoreList.Location = new System.Drawing.Point(12, 32);
             this.StudentScoreList.MultiSelect = false;
             this.StudentScoreList.Name = "StudentScoreList";
             this.StudentScoreList.ReadOnly = true;
@@ -91,7 +111,7 @@
             this.StudentScoreList.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.StudentScoreList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.StudentScoreList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.StudentScoreList.Size = new System.Drawing.Size(1116, 579);
+            this.StudentScoreList.Size = new System.Drawing.Size(1106, 579);
             this.StudentScoreList.TabIndex = 5;
             this.StudentScoreList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentScoreList_CellClick_1);
             // 
@@ -125,13 +145,76 @@
             this.btnSearch.TabIndex = 19;
             this.btnSearch.UseVisualStyleBackColor = false;
             // 
-            // splitter1
+            // Column1
             // 
-            this.splitter1.Location = new System.Drawing.Point(0, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 608);
-            this.splitter1.TabIndex = 21;
-            this.splitter1.TabStop = false;
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            this.Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Student ID";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 120;
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Name";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 200;
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Gender";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 80;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Quiz";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 120;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Homework";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Width = 120;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Assignment";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 120;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Midterm";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Width = 120;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Final";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 120;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Total";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 120;
             // 
             // SC_List
             // 
@@ -139,7 +222,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1116, 608);
-            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.StudentScoreList);
@@ -159,7 +241,16 @@
         private System.Windows.Forms.DataGridView StudentScoreList;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.ToolTip ttSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }

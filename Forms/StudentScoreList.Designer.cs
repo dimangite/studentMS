@@ -32,7 +32,6 @@
             this.lbClass = new System.Windows.Forms.Label();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnList = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.pnSScore = new System.Windows.Forms.Panel();
             this.pnMain.SuspendLayout();
@@ -44,7 +43,6 @@
             this.pnMain.Controls.Add(this.lbClass);
             this.pnMain.Controls.Add(this.btnSettings);
             this.pnMain.Controls.Add(this.btnList);
-            this.pnMain.Controls.Add(this.btnDelete);
             this.pnMain.Controls.Add(this.btnEdit);
             this.pnMain.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnMain.Location = new System.Drawing.Point(0, 0);
@@ -93,21 +91,6 @@
             this.btnList.UseVisualStyleBackColor = false;
             this.btnList.Click += new System.EventHandler(this.btnList_Click);
             // 
-            // btnDelete
-            // 
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Chaparral Pro", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(260, 0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(129, 46);
-            this.btnDelete.TabIndex = 11;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
             // btnEdit
             // 
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
@@ -115,11 +98,11 @@
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Chaparral Pro", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnEdit.Location = new System.Drawing.Point(131, 0);
+            this.btnEdit.Location = new System.Drawing.Point(197, 0);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(129, 46);
             this.btnEdit.TabIndex = 10;
-            this.btnEdit.Text = "Add/Edit";
+            this.btnEdit.Text = "Update";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
@@ -153,7 +136,6 @@
         private System.Windows.Forms.Panel pnMain;
         private System.Windows.Forms.Panel pnSScore;
         public System.Windows.Forms.Button btnList;
-        public System.Windows.Forms.Button btnDelete;
         public System.Windows.Forms.Button btnEdit;
         public System.Windows.Forms.Button btnSettings;
         public System.Windows.Forms.Label lbClass;

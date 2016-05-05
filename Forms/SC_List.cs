@@ -14,60 +14,85 @@ namespace StudentManagementSystem
 {
     public partial class SC_List : Form
     {
-        public static int ID = 0;
+        List<StudentScore1> score;
+
+        public static int ScoreId = 0;
         public SC_List()
         {
             InitializeComponent();
             ttSearch.SetToolTip(btnSearch, "Search");
+            
         }
         private void SC_List_Load(object sender, EventArgs e)
         {
-            int id = 0;
-            Database.Open();
-            StudentScoreList.DataSource = StudentScoreDB.LoadStudent();
-            ColumnDesign();
-            for (int i = 0; i < StudentScoreDB.GetRow(); i++)
-            {
-                id = Convert.ToInt32(StudentScoreList.Rows[i].Cells[0].Value.ToString());
-                StudentScoreDB.UpdateStudentTotal(id);
-            }
+            Database.Open(); 
+            LoadScore();
             ChangeLanguage();
+        }
+
+        public void LoadScore()
+        {
+            score = StudentScore1.GetAllScores();
+            string gender;
+            StudentScoreList.Rows.Clear();
+            foreach (StudentScore1 s in score)
+            {
+                if (s.gender == true)
+                {
+                    gender = "M";
+                }
+                else
+                {
+                    gender = "F";
+                }
+                StudentScoreList.Rows.Add(s.scoreId, s.stdId, s.stdName, gender,s.Quiz, s.Homework,s.Assignment,s.Midterm, s.Final,(s.Quiz+s.Homework+s.Assignment+s.Midterm+ s.Final));
+            }
+           
         }
         private void StudentScoreList_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             StudentScoreList.RowsDefaultCellStyle.SelectionBackColor = Color.DarkGray;
             StudentScoreList.RowsDefaultCellStyle.SelectionForeColor = Color.Blue;
-            try
+
+            ScoreId = Int16.Parse(StudentScoreList.SelectedCells[0].Value.ToString());
+            ///Send Value of ID to Form SC_Edit to Edit Score////////////////////////////////
+            if (ScoreId > 0)
             {
-                ID = Convert.ToInt32(StudentScoreList.Rows[e.RowIndex].Cells[0].Value.ToString());
-                ///Send Value of ID to Form SC_Edit to Edit Score////////////////////////////////
-                if (ID > 0)
-                {
-                    StudentScoreDB.GetID = ID;
-                    (this.Owner as StudentScore).btnEdit.Enabled = true;
-                    (this.Owner as StudentScore).btnDelete.Enabled = true;
-                }       
+                //StudentScoreDB.GetID = ScoreId;
+                (this.Owner as StudentScore).btnEdit.Enabled = true;
+               // (this.Owner as StudentScore).btnDelete.Enabled = true;
             }
-            catch (Exception) { }
         }
-        public void ColumnDesign()
-        {
-            StudentScoreList.Columns["ID"].Visible = false;
-            StudentScoreList.Columns["StudentID"].Width = 170;
-            StudentScoreList.Columns["FullName"].Width = 170;
-            StudentScoreList.Columns["Gender"].Width = 80;
-            StudentScoreList.Columns["Homework"].Width = 110;
-            StudentScoreList.Columns["Quiz"].Width = 80;
-            StudentScoreList.Columns["Status"].Visible = false;
-        }
+
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
-            StudentScoreList.RowsDefaultCellStyle.SelectionBackColor = Color.DarkGray;
+            StudentScoreList.RowsDefaultCellStyle.SelectionBackColor = Color.LightGray;
             StudentScoreList.RowsDefaultCellStyle.SelectionForeColor = Color.Blue;
-            string KeyWord = txtSearch.Text;
 
-            StudentScoreList.DataSource = StudentScoreDB.Search(KeyWord);
-            ColumnDesign();
+            if (!(string.IsNullOrEmpty(txtSearch.Text)))
+            {
+                LoadSearch(txtSearch.Text);
+            }
+            else LoadScore();
+        }
+
+        public void LoadSearch(string keyword)
+        {
+            score = StudentScore1.Search(keyword);
+            string gender;
+            StudentScoreList.Rows.Clear();
+            foreach (StudentScore1 s in score)
+            {
+                if (s.gender == true)
+                {
+                    gender = "M";
+                }
+                else
+                {
+                    gender = "F";
+                }
+                StudentScoreList.Rows.Add(s.scoreId, s.stdId, s.stdName, gender, s.Quiz, s.Homework, s.Assignment, s.Midterm, s.Final, (s.Quiz + s.Homework + s.Assignment + s.Midterm + s.Final));
+            }
         }
         private void ChangeLanguage()
         {

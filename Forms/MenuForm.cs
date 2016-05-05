@@ -21,6 +21,8 @@ namespace StudentManagementSystem
             ttClose.SetToolTip(btnExit, "Close");
             ttMinimun.SetToolTip(btnMinimun, "Minimun");
             btnHome.BackColor = Color.WhiteSmoke;
+            ClassSettting s = new ClassSettting();
+            s.Owner = this;
             Home h = new Home();
             h.Owner = this;
         }
@@ -36,7 +38,7 @@ namespace StudentManagementSystem
             Application.Exit();
         }
 
-        private void btnHome_Click(object sender, EventArgs e)
+        public void btnHome_Click(object sender, EventArgs e)
         {
             lbMainName.Text = btnHome.Text;
             //ColorChecker
@@ -112,11 +114,11 @@ namespace StudentManagementSystem
             lbMainName.Text = btnReport.Text;
             //ColorChecker
             pnTool.Controls.Clear();
-            /*Report r = new Report();
+            Report r = new Report();
             r.TopLevel = false;
             r.AutoScroll = true;
             pnTool.Controls.Add(r);
-            r.Show();*/
+            r.Show();
             DetectButton(6);
         }
         private void btnOption_Click(object sender, EventArgs e)

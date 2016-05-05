@@ -13,21 +13,24 @@ namespace StudentManagementSystem
 {
     public partial class SC_Edit : Form
     {
+        StudentScore1 myScore = new StudentScore1();
         public SC_Edit()
         {
             InitializeComponent();
+            
         }
         private void SC_List_Load(object sender, EventArgs e)
         {
             Database.Open();
-            StudentScoreDB.EditLoad();
-            lbName.Text = StudentScoreDB.Fullname;
-            txtHomework.Text = StudentScoreDB.Homework;
-            txtQuiz.Text = StudentScoreDB.Quiz;
-            txtAssignment.Text = StudentScoreDB.Assignment;
-            txtMidterm.Text = StudentScoreDB.Midterm;
-            txtAttendent.Text = StudentScoreDB.Attendent;
-            txtFinal.Text = StudentScoreDB.Final;
+            myScore = StudentScore1.getSelected(SC_List.ScoreId);
+            //StudentScoreDB.EditLoad();
+            lbName.Text = myScore.stdName;
+            txtHomework.Text = myScore.Homework.ToString();
+            txtQuiz.Text = myScore.Quiz.ToString();
+            txtAssignment.Text = myScore.Assignment.ToString();
+            txtMidterm.Text = myScore.Midterm.ToString();
+            txtAttendent.Text = "0";
+            txtFinal.Text = myScore.Final.ToString();
         }
         public void btnCencel_Click(object sender, EventArgs e)
         {
@@ -35,15 +38,15 @@ namespace StudentManagementSystem
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            StudentScore1 sc = new StudentScore1();
             try {
-
-                float Homework = float.Parse(txtHomework.Text);
-                float Quiz = float.Parse(txtQuiz.Text);
-                float Assignment = float.Parse(txtAssignment.Text);
-                float Midterm = float.Parse(txtMidterm.Text);
-                float Attendent = float.Parse(txtAttendent.Text);
-                float Final = float.Parse(txtFinal.Text);
-                StudentScoreDB.EditUpdate(Homework, Quiz, Assignment, Midterm, Attendent, Final);
+                sc.scoreId = myScore.scoreId;
+                sc.Homework = Int16.Parse(txtHomework.Text);
+                sc.Quiz = Int16.Parse(txtQuiz.Text);
+                sc.Assignment = Int16.Parse(txtAssignment.Text);
+                sc.Midterm = Int16.Parse(txtMidterm.Text);
+                sc.Final = Int16.Parse(txtFinal.Text);
+                StudentScore1.Update(sc);
                 (this.Owner as StudentScore).btnList_Click(sender, e);
             }
             catch (Exception)

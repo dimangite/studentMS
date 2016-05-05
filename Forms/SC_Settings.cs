@@ -29,14 +29,14 @@ namespace StudentManagementSystem
         {
             Database.Open();
             btnSave.Enabled = false;
-            StudentScoreDB.SettingLoad();
+         /*   StudentScoreDB.SettingLoad();
             trbHW.Value = StudentScoreDB.HomeworkPct;
             trbQuiz.Value = StudentScoreDB.QuizPct;
             trbAss.Value = StudentScoreDB.AssignmentPct;
             trbMidterm.Value = StudentScoreDB.MidtermPct;
             trbAtt.Value = StudentScoreDB.AttendentPct;
             trbFinal.Value = StudentScoreDB.FinalPct;
-
+            */
                     //
             lbHomework.Text = trbHW.Value.ToString() + " %";
             lbQuiz.Text = trbQuiz.Value.ToString() + " %";
@@ -69,7 +69,7 @@ namespace StudentManagementSystem
             AttendentPct = trbAtt.Value;
             FinalPct = trbFinal.Value;
             ///////////////////////////////////////
-            StudentScoreDB.Setting(HomeworkPct, QuizPct, AssignmentPct, MidtermPct, AttendentPct, FinalPct);
+            //StudentScoreDB.Setting(HomeworkPct, QuizPct, AssignmentPct, MidtermPct, AttendentPct, FinalPct);
             Design("Silver","false");
         }
         private void Design(string Colors , string Option)

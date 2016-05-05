@@ -37,6 +37,8 @@
     <Reference Include="FastColoredTextBox">
       <HintPath>..\..\Inneed\Italk\t3_vb.net_theme_archive_1.7.0\T3 VB.NET Theme Archive 1.7.0\FastColoredTextBox.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data">
       <HintPath>C:\MAMP\MySql.Data.dll</HintPath>
     </Reference>
@@ -56,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\Class.cs" />
+    <Compile Include="Database\StudentScore1.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Forms\AboutUs.cs">
       <SubType>Form</SubType>
@@ -70,11 +73,17 @@
     <Compile Include="Forms\AttendanceForm.designer.cs">
       <DependentUpon>AttendanceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Home.cs">
+    <Compile Include="Forms\Classes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="Forms\Classes.Designer.cs">
+      <DependentUpon>Classes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClassSettting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClassSettting.Designer.cs">
+      <DependentUpon>ClassSettting.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
@@ -108,6 +117,12 @@
     </Compile>
     <Compile Include="Forms\PictureCircle.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Report.Designer.cs">
+      <DependentUpon>Report.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\SC_Edit.cs">
       <SubType>Form</SubType>
@@ -147,7 +162,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Database\StudentScoreDB.Cs" />
     <Compile Include="Forms\SL_Add.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,8 +188,11 @@
     <EmbeddedResource Include="Forms\AttendanceForm.resx">
       <DependentUpon>AttendanceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Classes.resx">
+      <DependentUpon>Classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClassSettting.resx">
+      <DependentUpon>ClassSettting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -194,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\PictureCircle.resx">
       <DependentUpon>PictureCircle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report.resx">
+      <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SC_Edit.resx">
       <DependentUpon>SC_Edit.cs</DependentUpon>

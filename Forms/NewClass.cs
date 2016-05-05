@@ -36,16 +36,6 @@ namespace StudentManagementSystem.Forms
             base.WndProc(ref m);
         }
 
-        private void txtStudentNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            txtStudentNumber.MaxLength = 15;
-            char ch = e.KeyChar;
-            if (!char.IsDigit(ch) && ch != 8 && ch != 46)
-            {
-                e.Handled = true;
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Database.Close();
@@ -56,7 +46,7 @@ namespace StudentManagementSystem.Forms
         private void btnNewClass_Click(object sender, EventArgs e)
         {
             //1.verify all input (textbox, combobox, and datetimepicker)
-            if (String.IsNullOrEmpty(txtClassName.Text) || (string.IsNullOrEmpty(txtUserID.Text)) || (string.IsNullOrEmpty(txtStudentNumber.Text)))
+            if (String.IsNullOrEmpty(txtClassName.Text) || string.IsNullOrEmpty(comboBoxSemseter.Text) || string.IsNullOrEmpty(comboBoxYear.Text) || string.IsNullOrEmpty(tbSession.Text))
             {
                 MessageBox.Show("Please input class info", "Erorr Adding", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtClassName.Focus();
@@ -66,11 +56,11 @@ namespace StudentManagementSystem.Forms
             //2.insert to table student in the database
             Class s = new Class();
             s.ClassName = txtClassName.Text.Trim();
-            s.UserID = Int16.Parse(txtUserID.Text.Trim());
+            s.Year = Int16.Parse(comboBoxYear.Text.Trim());
+            s.Semester = Int16.Parse(comboBoxSemseter.Text.Trim());
             s.StartDate = dateTimePickerStartDate.Value;
-            s.EndDate = dateTimePickerEndDate.Value;
-            s.StudentNumber = Int16.Parse(txtStudentNumber.Text.Trim());
-
+            s.SessionNumber = Int16.Parse(tbSession.Text.Trim());
+           
             Class.Insert(s);
             state = true;
             this.Close();
@@ -80,7 +70,12 @@ namespace StudentManagementSystem.Forms
         private void NewClass_Load(object sender, EventArgs e)
         {
             Database.Open();
-            txtClassName.Focus(); 
+            txtClassName.Focus();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }

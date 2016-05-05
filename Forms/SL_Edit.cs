@@ -23,10 +23,6 @@ namespace StudentManagementSystem.Forms
         {
             Database.Open();
             txtFullName.Text = student.Name;
-            txtPOB.Text = student.POB;
-            txtFatherName.Text = student.FatherName;
-            txtMotherName.Text = student.MotherName;
-            txtAddress.Text = student.Address;
             txtPhone.Text = student.Phone.ToString();
             if (student.Gender==true)
             {
@@ -36,7 +32,7 @@ namespace StudentManagementSystem.Forms
             {
                 rdbFemale.Checked = true;
             }
-            dateTimePickerDOB.Value = Convert.ToDateTime( student.DOB.ToShortTimeString());
+            
             Picture.ImageLocation = student.PhotoPath;
         }
 
@@ -51,11 +47,6 @@ namespace StudentManagementSystem.Forms
             {
                 student.Gender = true;
             }
-            student.DOB = dateTimePickerDOB.Value;
-            student.FatherName = txtFatherName.Text;
-            student.MotherName = txtMotherName.Text;
-            student.POB = txtPOB.Text;
-            student.Address = txtAddress.Text;
             student.Phone = (txtPhone.Text);
             student.PhotoPath = Picture.ImageLocation;
             student.Photo = img;

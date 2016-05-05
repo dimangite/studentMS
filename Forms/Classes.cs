@@ -17,6 +17,8 @@ namespace StudentManagementSystem
     {
         public int NameClass=0;
         public Button MyButton= new Button();
+        public static string ClassName;
+
         public Home()
         {
             InitializeComponent();
@@ -76,7 +78,7 @@ namespace StudentManagementSystem
             // Set Button properties
             dynamicButton.Height = 73;
             dynamicButton.Width = 146;
-            dynamicButton.BackColor = Color.Pink;
+            dynamicButton.BackColor = Color.DarkSeaGreen;
             dynamicButton.ForeColor = Color.White;
             dynamicButton.Location = new Point(x, y);
             dynamicButton.Text = n;
@@ -94,7 +96,9 @@ namespace StudentManagementSystem
 
         private void DynamicButton_Click(object sender, EventArgs e)
         {
-           // MessageBox.Show("Now you are in class ");
+            Button DynamicButton = sender as Button;
+            ClassName = DynamicButton.Text;
+            
             (this.Owner as ToolMenu).btnStudentList_Click(sender,e);
             (this.Owner as ToolMenu).ActiveButton();
         }
@@ -111,6 +115,12 @@ namespace StudentManagementSystem
         private void Home_Leave(object sender, EventArgs e)
         {
             Database.Close();
+        }
+
+        private void btnSetting_Click(object sender, EventArgs e)
+        {
+            ClassSettting s = new ClassSettting();
+            s.Show();
         }
 
     }

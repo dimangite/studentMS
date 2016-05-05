@@ -12,7 +12,7 @@ namespace StudentManagementSystem
         public static MySqlConnection connection;
         static Database()
         {
-            string connectionString = "server=127.0.0.1; port= 3306; Database= studentmanagementdb; user= root;password=root; CharSet= utf08";
+            string connectionString = "server=127.0.0.1; port= 3306; Database= studentmanagement; user= root;password=root; CharSet= utf08";
             connection = new MySqlConnection(connectionString);
         }
         public static bool Open()

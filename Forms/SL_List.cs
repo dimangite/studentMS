@@ -15,7 +15,7 @@ namespace StudentManagementSystem
     public partial class SL_List : Form
     {
         static List<StudentListDB> Mystudent;
-       // public static int rowIndex=-1;
+        public string PhotoPath;
 
         public SL_List()
         {
@@ -24,7 +24,7 @@ namespace StudentManagementSystem
 
         public void LoadStudent()
         {
-            Mystudent = StudentListDB.GetAllStudnts();
+            Mystudent = StudentListDB.GetAllStudents();
             string gender;
             dataGridViewScore.Rows.Clear();
             foreach (StudentListDB s in Mystudent)
@@ -37,7 +37,7 @@ namespace StudentManagementSystem
                 {
                     gender = "F";
                 }
-                dataGridViewScore.Rows.Add(s.Id, s.Name, gender, s.DOB.ToShortDateString(), s.POB, s.FatherName, s.MotherName, s.Address, s.Phone);
+                dataGridViewScore.Rows.Add(s.Id, s.Name, gender, s.Phone);
 	        }
            
         }
@@ -57,7 +57,8 @@ namespace StudentManagementSystem
         {
             dataGridViewScore.RowsDefaultCellStyle.SelectionBackColor = Color.DarkGray;
             dataGridViewScore.RowsDefaultCellStyle.SelectionForeColor = Color.Blue;
-            rowIndex = Int16.Parse(dataGridViewScore.SelectedCells[0].Value.ToString()); 
+            rowIndex = Int16.Parse(dataGridViewScore.SelectedCells[0].Value.ToString());
+            pictureCircle.ImageLocation = GetSelected().PhotoPath;
         }
         //private StudentListDB student = new StudentListDB();
         public StudentListDB GetSelected()
@@ -69,7 +70,7 @@ namespace StudentManagementSystem
             }
             else
             {
-                 int id=-1;
+                int id=-1;
                 foreach (StudentListDB s in Mystudent)
                 {
                     if (s.Id==rowIndex)
@@ -85,7 +86,6 @@ namespace StudentManagementSystem
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
-                   
                 }
                 return ss;
             }
@@ -93,7 +93,37 @@ namespace StudentManagementSystem
 
         private void SL_List_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Database.Close();
+        }
+        List<StudentListDB> student = new List<StudentListDB>();
+        public void LoadSearch(string keyword)
+        {
+            student = StudentListDB.Search(keyword);
+            string gender;
+            dataGridViewScore.Rows.Clear();
+            foreach (StudentListDB s in student)
+            {
+                if (s.Gender == true)
+                {
+                    gender = "M";
+                }
+                else
+                {
+                    gender = "F";
+                }
+                dataGridViewScore.Rows.Add(s.Id, s.Name, gender, s.Phone);
+            }
+        }
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            dataGridViewScore.RowsDefaultCellStyle.SelectionBackColor = Color.DarkGray;
+            dataGridViewScore.RowsDefaultCellStyle.SelectionForeColor = Color.Blue;
 
+            if (!(string.IsNullOrEmpty(txtSearch.Text)))
+            {
+                LoadSearch(txtSearch.Text);
+            }
+            else LoadStudent();
         }
     }
 }

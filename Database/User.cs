@@ -20,6 +20,7 @@ namespace StudentManagementSystem
         public string Role;
         public string Path;
         public Image Photo;
+        public static int userId;
 
         public static User LoginWithUsername (string username)
         {
@@ -35,10 +36,10 @@ namespace StudentManagementSystem
                 while (reader.Read())
                 {
                     user = new User();
-                    user.Id = Int16.Parse(reader["id"].ToString());
+                    user.Id = Int16.Parse(reader["userId"].ToString());
                     user.Username = reader["username"].ToString();
                     user.Password = reader["password"].ToString();
-                    user.Path = reader["path"].ToString();
+                    user.Path = reader["photoPath"].ToString();
                     user.Name = reader["name"].ToString();
                     //byte[] photoByte = (byte[])reader["photo"];
                     //MemoryStream ms = new MemoryStream(photoByte);
@@ -47,11 +48,11 @@ namespace StudentManagementSystem
                     //user.Role = reader["role"].ToString();
                 }
                 reader.Close();
+                userId = user.Id;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
-                
             }
             
             return user;
@@ -83,16 +84,16 @@ namespace StudentManagementSystem
         {
             try
             {
-                string query = "INSERT INTO user(username, password, name, gender, phone,photo, path) VALUES(@username,@password,@name, @gender,@phone,@photo,@path)";
+                string query = "INSERT INTO user(username, password, name, gender,photo, photoPath) VALUES(@username,@password,@name, @gender,@photo,@photoPath)";
                 MySqlCommand cmd = new MySqlCommand(query, Database.connection);
                 cmd.Prepare();
                 cmd.Parameters.AddWithValue("@username", u.Username);
                 cmd.Parameters.AddWithValue("@password", u.Password);
                 cmd.Parameters.AddWithValue("@name", u.Name);
                 cmd.Parameters.AddWithValue("@gender", u.Gender);
-                cmd.Parameters.AddWithValue("@phone", u.Phone);
+                //cmd.Parameters.AddWithValue("@phone", u.Phone);
                 cmd.Parameters.AddWithValue("@photo", u.Photo);
-                cmd.Parameters.AddWithValue("path", u.Path);
+                cmd.Parameters.AddWithValue("@PhotoPath", u.Path);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)

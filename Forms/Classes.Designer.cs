@@ -28,25 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnNewClass = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.lbName = new System.Windows.Forms.Label();
             this.lbID = new System.Windows.Forms.Label();
+            this.btnSetting = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::StudentManagementSystem.Properties.Resources._1446056085_Student_3;
-            this.pictureBox1.Location = new System.Drawing.Point(180, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(157, 167);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -114,12 +105,37 @@
             this.lbID.TabIndex = 11;
             this.lbID.Text = "id";
             // 
+            // btnSetting
+            // 
+            this.btnSetting.BackColor = System.Drawing.Color.Blue;
+            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetting.Font = new System.Drawing.Font("Georgia", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSetting.ForeColor = System.Drawing.Color.White;
+            this.btnSetting.Location = new System.Drawing.Point(978, 103);
+            this.btnSetting.Name = "btnSetting";
+            this.btnSetting.Size = new System.Drawing.Size(110, 46);
+            this.btnSetting.TabIndex = 12;
+            this.btnSetting.Text = "Setting";
+            this.btnSetting.UseVisualStyleBackColor = false;
+            this.btnSetting.Click += new System.EventHandler(this.btnSetting_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::StudentManagementSystem.Properties.Resources._1446056085_Student_3;
+            this.pictureBox1.Location = new System.Drawing.Point(180, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(157, 167);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1100, 631);
+            this.Controls.Add(this.btnSetting);
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.lbName);
             this.Controls.Add(this.label3);
@@ -147,5 +163,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lbName;
         private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.Button btnSetting;
     }
 }

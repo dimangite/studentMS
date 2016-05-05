@@ -7,72 +7,166 @@ using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-
 namespace StudentManagementSystem
 {
     public class Attendance
     {
-        public static List<StudentListDB> GetStudent()
+        private int atdId;
+
+        public int AtdId
         {
-            List<StudentListDB> students = new List<StudentListDB>();
+            get { return atdId; }
+            set { atdId = value; }
+        }
+        private int stdId;
+
+        public int StdId
+        {
+            get { return stdId; }
+            set { stdId = value; }
+        }
+        private bool gender;
+
+        public bool Gender
+        {
+            get { return gender; }
+            set { gender = value; }
+        }
+        private bool isAtd;
+
+        public bool IsAtd
+        {
+            get { return isAtd; }
+            set { isAtd = value; }
+        }
+        private int session;
+
+        public int Session
+        {
+            get { return session; }
+            set { session = value; }
+        }
+
+        private string stdName;
+
+        public string StdName
+        {
+            get { return stdName; }
+            set { stdName = value; }
+        }
+
+        private string atd;
+
+        public string Atd
+        {
+            get { return atd; }
+            set {
+                if (string.IsNullOrEmpty(value))
+                {
+                    atd = "0-0-0-0-0-0-0-0-0-0-0-0-0-0-0";
+                }
+                else atd = value;
+            }
+        }
+
+
+        public static int GetSubId(string name)
+        {
+            int subId = 0;
+            string query = "SELECT subId FROM subject WHERE subName=@subName";
+            MySqlCommand cmd = new MySqlCommand(query, Database.connection);
+            cmd.Parameters.AddWithValue("@subName", name);
+            cmd.Prepare();
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                subId = Int16.Parse(reader["subId"].ToString());
+            }
+            reader.Close();
+            return subId;
+        }
+
+        public static int GetSubUserId()
+        {
+            // get subUserId from subUser
+            int subUserId = 0;
+            string querySubUserId = "SELECT subUserId FROM subjectuser WHERE userId=@userId AND subId= @subId";
+            MySqlCommand cmdSubUserId = new MySqlCommand(querySubUserId, Database.connection);
+            cmdSubUserId.Parameters.AddWithValue("@userId", User.userId);
+            cmdSubUserId.Parameters.AddWithValue("@subId", GetSubId(Home.ClassName));
+            cmdSubUserId.Prepare();
+            MySqlDataReader readerSubUserId = cmdSubUserId.ExecuteReader();
+            while (readerSubUserId.Read())
+            {
+                subUserId = Int16.Parse(readerSubUserId["subUserId"].ToString());
+            }
+            readerSubUserId.Close();
+            return subUserId;
+        }
+
+        public static List<Attendance> GetAllAttendances()
+        {
+            List<Attendance> attendance = new List<Attendance>();
 
             try
             {
-                string query = "SELECT * FROM studentlist";
+                string query = "SELECT s.name, s.gender, s.stdId ,a.session, a.attendance, a.id FROM attendance a INNER JOIN student s ON s.stdId= a.stdId WHERE a.subUserId=@subUserId";
                 MySqlCommand cmd = new MySqlCommand(query, Database.connection);
+                cmd.Prepare();
+                cmd.Parameters.AddWithValue("@subUserId", GetSubUserId());
                 MySqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    StudentListDB s = new StudentListDB();
-                    s.Id = Int16.Parse(reader["studentID"].ToString());
-                    s.Name = reader["name"].ToString();
+                    Attendance s = new Attendance();
+                    s.AtdId = Int16.Parse(reader["id"].ToString());
+                    s.Session = Int16.Parse(reader["session"].ToString());
+                    s.StdId = Int16.Parse(reader["stdId"].ToString());
+                    s.StdName = reader["name"].ToString();
                     s.Gender = Convert.ToBoolean(reader["gender"].ToString());
-                    students.Add(s);
+                    s.Atd = reader["attendance"].ToString();
+                    attendance.Add(s);
                 }
                 reader.Close();
             }
             catch(Exception ex){ MessageBox.Show(ex.ToString()); }
-            return students;
+            return attendance;
 
         }        
         //----------------------------------------------------------------------------------------------------------------
 
-        public static void Add (string dateTime, string name)
+        public static int NumberSession()
         {
+            int s=0;
+            string query = "SELECT sessionNumber FROM subjectUser WHERE subUserId= @id";
+            MySqlCommand cmd = new MySqlCommand(query, Database.connection);
+            cmd.Prepare();
+            cmd.Parameters.AddWithValue("@id", GetSubUserId());
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                s = Int16.Parse(reader["sessionNumber"].ToString());
+            }
+            reader.Close();
+            return s;
+        }
+
+        public static void AssignAttendance(Attendance s)
+        {
+            string query= "UPDATE attendance SET attendance= @attendace WHERE id= @atdId";
+            MySqlCommand cmd = new MySqlCommand(query, Database.connection);
+            cmd.Prepare();
+            cmd.Parameters.AddWithValue("@attendace", s.Atd);
+            cmd.Parameters.AddWithValue("@atdId", s.AtdId);
             try
             {
-                string sql = "insert into attendancedb(Date, StudentID) values(@Date, @StudentID)";
-                MySqlCommand cmd = new MySqlCommand(sql, Database.connection);
-
-                cmd.Parameters.AddWithValue("@Date", dateTime);
-                cmd.Parameters.AddWithValue("@StudentID", name);
                 cmd.ExecuteNonQuery();
             }
-            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
-        }
-        //-------------------------------------------------------------------------------------------------------------
-
-        public static List<string> GetAttendance()
-        {
-            List<string> atds = new List<string>();
-            
-            try
+            catch (Exception ex)
             {
-                string query = "SELECT * FROM attendancedb";
-                MySqlCommand cmd = new MySqlCommand(query, Database.connection);
-
-                //compare database with datagridview
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    string name = reader.GetString(2);
-                    atds.Add(name);
-                }
-                reader.Close();
+                MessageBox.Show(ex.ToString());
             }
-            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
-            return atds;
-        }//end GetAttendance
+
+        }
     }//end class Attendance
 }//end StudentMangementSystem

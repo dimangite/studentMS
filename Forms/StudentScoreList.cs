@@ -23,7 +23,7 @@ namespace StudentManagementSystem
         {
             ChangeLanguage();
             btnEdit.Enabled = false;
-            btnDelete.Enabled = false;
+           // btnDelete.Enabled = false;
             SC_List List = new SC_List();
             List.Owner = this;
             List.TopLevel = false;
@@ -33,7 +33,7 @@ namespace StudentManagementSystem
         }
         public void btnList_Click(object sender, EventArgs e)
         {
-            btnDelete.Enabled = false;
+            //btnDelete.Enabled = false;
             btnEdit.Enabled = false;
             DetectColorButton(1);
             pnSScore.Controls.Clear();
@@ -48,6 +48,7 @@ namespace StudentManagementSystem
         {
               DetectColorButton(3);
               pnSScore.Controls.Clear();
+              
               SC_Edit Edit = new SC_Edit();
               Edit.Owner = this;
               Edit.TopLevel = false;
@@ -57,7 +58,7 @@ namespace StudentManagementSystem
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            btnDelete.Enabled = false;
+            
             btnEdit.Enabled = false;
             pnSScore.Controls.Clear();
             DetectColorButton(4);
@@ -93,7 +94,7 @@ namespace StudentManagementSystem
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            StudentScoreDB.Delete();
+            //StudentScoreDB.Delete();
             //refresh
             pnSScore.Controls.Clear();
             SC_List List = new SC_List();
@@ -111,8 +112,8 @@ namespace StudentManagementSystem
                 btnList.Text = "បញ្ជីឈ្មោះសិស្ស";
                 btnEdit.Font = new Font("Khmer OS Bokor", 13, FontStyle.Regular);
                 btnEdit.Text = "បញ្ចូល/កែពិន្ទុ";
-                btnDelete.Font = new Font("Khmer OS Bokor", 13, FontStyle.Regular);
-                btnDelete.Text = "លុបសិស្ស";
+                //btnDelete.Font = new Font("Khmer OS Bokor", 13, FontStyle.Regular);
+                //btnDelete.Text = "លុបសិស្ស";
                 btnSettings.Font = new Font("Khmer OS Bokor", 13, FontStyle.Regular);
                 btnSettings.Text = "កំណត់";
             }
@@ -122,8 +123,8 @@ namespace StudentManagementSystem
                 btnList.Text = "List";
                 btnEdit.Font = new Font("Chaparral Pro", 15, FontStyle.Bold);
                 btnEdit.Text = "Add/Edit";
-                btnDelete.Font = new Font("Chaparral Pro", 15, FontStyle.Bold);
-                btnDelete.Text = "Delete";
+                //btnDelete.Font = new Font("Chaparral Pro", 15, FontStyle.Bold);
+                //btnDelete.Text = "Delete";
                 btnSettings.Font = new Font("Chaparral Pro", 15, FontStyle.Bold);
                 btnSettings.Text = "Setting";
             }
